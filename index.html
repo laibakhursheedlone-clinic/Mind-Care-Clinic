@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Care Clinic | Dr. Laiba Khursheed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f0f4f8; color: #2c3e50; line-height: 1.6; padding-bottom: 100px; }
+        
+        /* Professional Header */
+        header { text-align: center; background: #ffffff; padding: 25px 15px; border-bottom: 4px solid #3498db; }
+        .cover { width: 100%; max-width: 900px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); margin-bottom: 15px; }
+        h1 { font-size: 2.2rem; color: #1a252f; text-transform: uppercase; letter-spacing: 2px; }
+        .welcome-msg { font-style: italic; color: #5dade2; font-weight: 600; font-size: 1.1rem; }
+
+        section { padding: 35px; max-width: 850px; margin: 25px auto; background: #ffffff; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); border: 1px solid #e1e8ed; }
+        h2 { color: #2c3e50; font-size: 1.6rem; border-left: 6px solid #3498db; padding-left: 15px; margin-bottom: 25px; font-weight: 700; }
+
+        /* Doctor Profile Section */
+        .doctor-box { text-align: center; }
+        .doctor-box img { width: 190px; height: 190px; border-radius: 50%; border: 6px solid #3498db; object-fit: cover; margin-bottom: 20px; transition: transform 0.3s; }
+        .doctor-box img:hover { transform: scale(1.05); }
+        .doc-name { font-size: 24px; font-weight: 700; color: #1a252f; margin-bottom: 5px; }
+        .doc-tag { font-weight: 600; color: #3498db; font-style: italic; font-size: 0.95rem; }
+
+        .qual-btn { background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 15px 30px; border: none; border-radius: 12px; cursor: pointer; font-weight: 600; width: 100%; margin-top: 20px; font-size: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .qual-content { display: none; text-align: left; padding: 25px; background: #fdfdfd; border-radius: 15px; margin-top: 20px; border: 1px solid #d6eaf8; }
+        .qual-content h3 { font-size: 1.1rem; color: #2e86c1; margin-top: 20px; border-bottom: 2px solid #3498db; padding-bottom: 5px; text-transform: uppercase; font-weight: 700; }
+        .qual-content ul { list-style: none; padding-top: 10px; }
+        .qual-content li { font-size: 0.95rem; margin-bottom: 10px; padding-left: 25px; position: relative; font-weight: 400; }
+        .qual-content li::before { content: "✦"; position: absolute; left: 0; color: #3498db; font-weight: bold; }
+
+        /* Specialties Cards */
+        .specialty-container { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .specialty-card { padding: 20px; background: #ffffff; border: 1px solid #e1e8ed; border-radius: 15px; cursor: pointer; transition: 0.3s; border-right: 5px solid transparent; border-left: 8px solid #3498db; }
+        .specialty-card:hover { background: #f0f7ff; border-left-color: #2ecc71; transform: translateX(8px); box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+        .specialty-card h4 { color: #1a252f; font-size: 1.2rem; margin-bottom: 5px; font-weight: 700; }
+        .specialty-card p { font-size: 0.9rem; color: #566573; font-style: italic; font-weight: 400; }
+
+        /* Payment Section */
+        .payment-box { text-align: center; background: linear-gradient(to bottom, #ffffff, #f7f9fb); }
+        .qr-img { width: 200px; margin: 20px auto; border: 4px solid #3498db; border-radius: 15px; display: block; padding: 5px; background: white; }
+        .price-tag { font-size: 1.2rem; font-weight: 700; color: #27ae60; margin: 10px 0; }
+
+        /* Sticky Footer Contact */
+        .sticky-contact { position: fixed; bottom: 0; width: 100%; display: flex; padding: 15px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 -5px 20px rgba(0,0,0,0.1); gap: 15px; z-index: 1000; }
+        .sticky-contact a { flex: 1; padding: 18px; text-align: center; text-decoration: none; color: white; font-weight: 700; border-radius: 15px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; }
+        .bg-call { background: #27ae60; box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3); }
+        .bg-wa { background: #25D366; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
+        .sticky-contact a:active { transform: scale(0.95); }
+
+        footer { text-align: center; padding: 40px 20px; font-weight: 600; color: #7f8c8d; font-style: italic; }
+
+        @media (min-width: 768px) { .specialty-container { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="clinic-cover.png" alt="Mind Care Clinic Cover" class="cover">
+        <h1>Mind Care Clinic</h1>
+        <p class="welcome-msg">Welcome! Your Mental Wellness is Our Priority.</p>
+    </header>
+
+    <section class="doctor-box">
+        <h2>About Our Doctor</h2>
+        <img src="dr-laiba.png" alt="Dr. Laiba Khursheed Profile">
+        <p class="doc-name">Laiba Khursheed Lone</p>
+        <p class="doc-tag">Psychologist | Mental Health Expert</p>
+        
+        <button class="qual-btn" onclick="toggleQual()">View Full Qualification & Skills</button>
+        
+        <div id="qualDetails" class="qual-content">
+            <h3>Education</h3>
+            <ul>
+                <li><strong>Matriculation:</strong> Army Public School Muzaffarabad (85%)</li>
+                <li><strong>Intermediate:</strong> Model Science College Muzaffarabad (80%)</li>
+                <li><strong>Bs Psychology Applied:</strong> Riphah International University (CGPA 3.86/4.00)</li>
+            </ul>
+
+            <h3>Certification</h3>
+            <ul>
+                <li>Research Methods in Psychology - Riphah International University (May 21, 2024)</li>
+            </ul>
+
+            <h3>Award</h3>
+            <ul>
+                <li><strong>Talent Award (2025):</strong> Honored for exceptional talent & dedication in psychology.</li>
+            </ul>
+
+            <h3>Internships</h3>
+            <ul>
+                <li>Psychiatry Department SKBZ CMH Mzd (6 Months)</li>
+                <li>Abbas Institute Of Medical Sciences (1 Month)</li>
+                <li>Islamabad Mind And Wellness Clinic And Rehabilitation Center Isb (1 Month)</li>
+                <li>Helping Hands Child Development And Rehabilitation Center Mzd (1 Month)</li>
+            </ul>
+
+            <h3>Skills</h3>
+            <ul>
+                <li>Psychological Testing & Assessment</li>
+                <li>Report Writing & Case Formulation</li>
+                <li>Clinical Observation</li>
+                <li>Empathy & Active Listening</li>
+                <li>Team Collaboration</li>
+                <li>Public Speaking & Presentation</li>
+                <li>Professional Counselling</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Our Specialized Services</h2>
+        <div class="specialty-container">
+            <div class="specialty-card" onclick="bookAppointment('Anxiety')">
+                <h4>Anxiety</h4>
+                <p>Be-ja khof, ghabrahat, aur musalsal fikr mand rehne ka professional ilaj.</p>
+            </div>
+            <div class="specialty-card" onclick="bookAppointment('Depression')">
+                <h4>Depression</h4>
+                <p>Udaasi, mayoosi, aur zindagi ki sargarmiyon mein dilchaspi ka khatam hona.</p>
+            </div>
+            <div class="specialty-card" onclick="bookAppointment('Relationship Issues')">
+                <h4>Relationship Issues</h4>
+                <p>Aapsi rishton ki uljhanein, communication gaps aur taluqaat mein behtari.</p>
+            </div>
+            <div class="specialty-card" onclick="bookAppointment('Stress Management')">
+                <h4>Stress Management</h4>
+                <p>Kaam ya halaat ka zehni dabao control karne ki koshish aur therapy.</p>
+            </div>
+            <div class="specialty-card" onclick="bookAppointment('Insomnia')">
+                <h4>Insomnia</h4>
+                <p>Pur-sukoon neend mein dushwari aur neend ke nizam ki behtari.</p>
+            </div>
+            <div class="specialty-card" onclick="bookAppointment('Panic Attacks')">
+                <h4>Panic Attacks</h4>
+                <p>Achanak shadid khof aur dil ki dharkan tez hone ki kaifiyat ka hal.</p>
+            </div>
+            <div class="specialty-card" onclick="bookAppointment('Behavioral Issues')">
+                <h4>Behavioral Issues</h4>
+                <p>Rawayon mein tabdeeli aur nafsiati uljhano ko behtar banane ki therapy.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="payment-box">
+        <h2>Payment Information</h2>
+        <p class="price-tag">Online Session: 1,000 PKR</p>
+        <p class="price-tag">Clinic Session: 1,500 PKR</p>
+        <div style="margin: 20px 0;">
+            <p><strong>Payment Method: Easypaisa</strong></p>
+            <p>03239963793 (Laiba Khursheed Lone)</p>
+            <img src="qr-code.jpg" alt="Easypaisa QR Code" class="qr-img">
+        </div>
+    </section>
+
+    <section>
+        <h2>Clinic Location</h2>
+        <p><strong>Address:</strong> Usman Plaza, Old Abdullah Clinic (Now Mind Care Clinic), Opposite SKBZ CMH MZD.</p>
+    </section>
+
+    <footer>
+        <p>Thank you for choosing Mind Care Clinic. Your mental health matters to us.</p>
+    </footer>
+
+    <div class="sticky-contact">
+        <a href="tel:+923239963793" class="bg-call">📞 Call Now</a>
+        <a href="https://wa.me/923239963793" class="bg-wa" target="_blank">💬 For Appointment Chat</a>
+    </div>
+
+    <script>
+        function toggleQual() {
+            var x = document.getElementById("qualDetails");
+            x.style.display = (x.style.display === "block") ? "none" : "block";
+        }
+
+        function bookAppointment(specialty) {
+            let msg = "Assalam-o-Alaikum, mujhe " + specialty + " ke liye appointment chahiye.";
+            window.open("https://wa.me/923239963793?text=" + encodeURIComponent(msg), '_blank');
+        }
+    </script>
+
+</body>
+</html>
